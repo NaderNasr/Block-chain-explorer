@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import TransactionDetails from './transactionDetails/TransactionDetails';
+import PolygonDetails from './polygon/PolygonDetails'
+import NotFound from './notFound/NotFound';
+import Home from './home/Home';
+import Navbar from './navbar/Navbar';
+import Polygon from './polygon/Polygon';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/polygon" element={<Polygon />} />
+          <Route path="/transactionDetails/:hash" element={<TransactionDetails />} />
+          <Route path="/polygonDetails/:hash" element={<PolygonDetails />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
 export default App;
+
