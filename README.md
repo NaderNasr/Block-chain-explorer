@@ -4,6 +4,8 @@
 - Dependencies: Axios, React router dom, Moment
 - API: PolyScan & EtherScan
 
+To install the project, make sure to get PolyScan & EtherScan API Keys, go to project, find `.env.example` change to `.env` and add API keys.
+
 Block Chain Explorer allows the user to view the balance of the address as well as input either an Ethereum or Polygon address and see history transactions, gas prices, and values of the transactions.
 
 The web app is also fully web and mobile responsive.
