@@ -1,7 +1,8 @@
 ## Block chain explorer
 
-- Stack: React JS, Typescript, PolyScan & EtherScan API
+- Stack: React JS, Typescript
 - Dependencies: Axios, React router dom, Moment
+- API: PolyScan & EtherScan
 
 Block Chain Explorer allows the user to view the balance of the address as well as input either an Ethereum or Polygon address and see history transactions, gas prices, and values of the transactions.
 
