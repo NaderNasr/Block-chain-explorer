@@ -71,7 +71,6 @@ function PolygonTransactionList({ polyTransactions }: Props): JSX.Element {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>Number</th>
               <th>
                 Amount <button onClick={handleSort}>{sortOrder}</button>
               </th>
@@ -88,7 +87,6 @@ function PolygonTransactionList({ polyTransactions }: Props): JSX.Element {
             )}
             {currentTransactions.map((transaction, index) => (
               <tr key={transaction.hash}>
-                <td>{startIndex + index + 1}</td>
                 <td>{convertToMatic(transaction.value)}</td>
                 <td>{moment.unix(transaction.timeStamp).format('LLL')}</td>
                 <td>{convertToGwei(transaction.gasPrice)}</td>

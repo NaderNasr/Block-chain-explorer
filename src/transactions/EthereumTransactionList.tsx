@@ -63,7 +63,6 @@ function EthereumTransactionList({ transactions }: Props) {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>Number</th>
               <th>
                 Amount <button onClick={handleSort}>{sortOrder}</button>
               </th>
@@ -80,7 +79,6 @@ function EthereumTransactionList({ transactions }: Props) {
             )}
             {currentTransactions.map((transaction: Transaction, index: number) => (
               <tr key={transaction.hash}>
-                <td>{startIndex + index + 1}</td>
                 <td>{convertToEther(transaction.value)}</td>
                 <td>{moment.unix(transaction.timeStamp).format('LLL')}</td>
                 <td>{convertToGwei(transaction.gasPrice)}</td>
