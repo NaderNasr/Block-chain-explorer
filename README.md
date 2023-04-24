@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+## Block chain explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web app created with React Js, TypeScript, PolyScan and EtherScan API's.
 
-## Available Scripts
+Block Chain Explorer allows the user to view the balance of the address as well as input either an Ethereum or Polygon address and see history transactions, gas prices, and values of the transactions.
 
-In the project directory, you can run:
+The web app is also fully web and mobile responsive.
 
-### `npm start`
+---
+#### What needs to be done:
+- I would also add use cases, and checks whether the address is correct or not, since both addresses consist of 42 characters.
+- I would also add random generated hashes at the beginning of page load and allow the user to input their own if needed.
+- I could also connect ask the user if they want to connect meta mask and their transactions will show on the web app instead.
+- I would clean up the code and make it more dynamic based on both have the same functions. This would likely be less code and more efficient.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Assumptions:
+- Used the Ether/Poly Scan API's rather than creating dummy data. Using real world addresses and retrieving real world transactions.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Instead of generating random hashes at page load, the app requests the user to add their own ETH or POLY address.
 
-### `npm test`
+- Added a Navbar to switch between Poly and Ether.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+#### DEMO:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
