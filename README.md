@@ -8,8 +8,6 @@ The web app is also fully web and mobile responsive.
 
 ---
 #### What needs to be done:
-- I would also add use cases, and checks whether the address is correct or not, since both addresses consist of 42 characters.
-- If the address is not correct, show an alert.
 - I would also add random generated hashes at the beginning of page load and allow the user to input their own if needed.
 - I could also ask the user if they want to connect meta mask and their transactions will show on the web app in addition to the generated hashes or just their own transactions.
 - I would clean up the code and make it more dynamic since both have the same functions.
@@ -30,7 +28,7 @@ This would likely be less code and more efficient.
 
 #### DEMO:
 
-https://user-images.githubusercontent.com/35424606/233877857-8ac06c2d-095c-4925-99b9-e3f4ebb7f529.mov
+https://user-images.githubusercontent.com/35424606/233890178-1ffc55a9-6fd8-43aa-80f7-1aaa8792c41b.mov
 
 
 
