@@ -17,6 +17,7 @@ This would likely be less code and more efficient.
 - I would put more time in the design, create a figma file, make sure how everything looks good and making the app look more inviting.
 - Create a landing page, about, contact us, turn it into a product.
 - Add SEO.
+- I would also read more into the API's documentation and understand how things work better.
 
 #### Assumptions:
 - Used the Ether/Poly Scan API's rather than creating dummy data. Using real world addresses and retrieving real world transactions.
@@ -28,8 +29,6 @@ This would likely be less code and more efficient.
 ---
 
 #### DEMO:
-
-
 
 https://user-images.githubusercontent.com/35424606/233877857-8ac06c2d-095c-4925-99b9-e3f4ebb7f529.mov
 
