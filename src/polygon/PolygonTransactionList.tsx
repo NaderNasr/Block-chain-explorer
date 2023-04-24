@@ -16,7 +16,10 @@ interface Transaction {
   isError: number;
   currentPage: number;
   pageNumbers: number[];
-  handleClick: (event: React.MouseEvent<HTMLAnchorElement>, pageNumber: number) => void;
+  handleClick: (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    pageNumber: number
+  ) => void;
 }
 
 interface Props {
@@ -53,7 +56,7 @@ function PolygonTransactionList({ polyTransactions }: Props): JSX.Element {
     pageNumbers.push(i);
   }
 
-  let sortedTransactions = [...polyTransactions];
+  let sortedTransactions: Transaction[] = [...polyTransactions];
   if (sortOrder === '⬇') {
     sortedTransactions.sort((a, b) => b.value - a.value);
   } else {
@@ -79,40 +82,51 @@ function PolygonTransactionList({ polyTransactions }: Props): JSX.Element {
               <th>Details</th>
             </tr>
           </thead>
-          <tbody>
-            {!currentTransactions && (
+          {String(polyTransactions) === 'Error! Invalid address format' ||
+          !(polyTransactions.length) ? (
+            <tbody>
               <tr>
-                <td colSpan={5}>Loading...</td>
+                <td>Invalid address</td>
               </tr>
-            )}
-            {currentTransactions.map((transaction, index) => (
-              <tr key={transaction.hash}>
-                <td>{convertToMatic(transaction.value)}</td>
-                <td>{moment.unix(transaction.timeStamp).format('LLL')}</td>
-                <td>{convertToGwei(transaction.gasPrice)}</td>
-                <td>
-                  <Link
-                    to={`/polygonDetails/${transaction?.hash}?gasPrice=${transaction.gasPrice}&value=${transaction.value}&gasUsed=${transaction.gasUsed}&gasPrice=${transaction.gasPrice}&timeStamp=${transaction.timeStamp}&to=${transaction.to}&from=${transaction.from}&txreceipt_status=${transaction.txreceipt_status}&isError=${transaction.isError}`}
-                  >
-                    Learn More
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+            </tbody>
+          ) : (
+            <>
+              <tbody>
+                {!currentTransactions && (
+                  <tr>
+                    <td colSpan={5}>Loading...</td>
+                  </tr>
+                )}
+                {currentTransactions.map((transaction, index) => (
+                  <tr key={transaction.hash}>
+                    <td>{convertToMatic(transaction.value)}</td>
+                    <td>{moment.unix(transaction.timeStamp).format('LLL')}</td>
+                    <td>{convertToGwei(transaction.gasPrice)}</td>
+                    <td>
+                      <Link
+                        to={`/polygonDetails/${transaction?.hash}?gasPrice=${transaction.gasPrice}&value=${transaction.value}&gasUsed=${transaction.gasUsed}&gasPrice=${transaction.gasPrice}&timeStamp=${transaction.timeStamp}&to=${transaction.to}&from=${transaction.from}&txreceipt_status=${transaction.txreceipt_status}&isError=${transaction.isError}`}
+                      >
+                        Learn More
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </>
+          )}
         </table>
       </div>
       <div className={styles.pagination}>
-      {pageNumbers.map((pageNumber) => (
-        <a
-          key={pageNumber}
-          className={pageNumber === currentPage ? styles.active : ''}
-          onClick={(event) => handleClick(event, pageNumber)}
-        >
-          {pageNumber}
-        </a>
-      ))}
-    </div>
+        {pageNumbers.map((pageNumber) => (
+          <a
+            key={pageNumber}
+            className={pageNumber === currentPage ? styles.active : ''}
+            onClick={(event) => handleClick(event, pageNumber)}
+          >
+            {pageNumber}
+          </a>
+        ))}
+      </div>
     </div>
   );
 }
