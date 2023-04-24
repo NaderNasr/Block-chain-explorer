@@ -1,6 +1,7 @@
 ## Block chain explorer
 
-A web app created with React Js, TypeScript, PolyScan and EtherScan API's.
+- Stack: React JS, Typescript, PolyScan & EtherScan API
+- Dependencies: Axios, React router dom, Moment
 
 Block Chain Explorer allows the user to view the balance of the address as well as input either an Ethereum or Polygon address and see history transactions, gas prices, and values of the transactions.
 
@@ -19,9 +20,7 @@ This would likely be less code and more efficient.
 
 #### Assumptions:
 - Used the Ether/Poly Scan API's rather than creating dummy data. Using real world addresses and retrieving real world transactions.
-
 - Instead of generating random hashes at page load, the app requests the user to add their own ETH or POLY address.
-
 - Added a Navbar to switch between Poly and Ether.
 
 ---
