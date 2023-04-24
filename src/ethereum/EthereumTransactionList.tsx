@@ -79,8 +79,7 @@ function EthereumTransactionList({ transactions }: Props) {
               <th>Details</th>
             </tr>
           </thead>
-          {String(transactions) === 'Error! Invalid address format' ||
-          !(transactions.length) ? (
+          {String(transactions) === 'Error! Invalid address format' || (transactions.length === 0 ) ? (
             <tbody>
               <tr>
                 <td>Invalid address</td>

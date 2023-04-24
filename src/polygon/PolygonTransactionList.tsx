@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
@@ -67,6 +67,8 @@ function PolygonTransactionList({ polyTransactions }: Props): JSX.Element {
   const endIndex = startIndex + transactionsPerPage;
   const currentTransactions = sortedTransactions.slice(startIndex, endIndex);
 
+
+  console.log(polyTransactions);
   return (
     <div className={styles.container}>
       <h2>Transaction List</h2>
@@ -82,8 +84,7 @@ function PolygonTransactionList({ polyTransactions }: Props): JSX.Element {
               <th>Details</th>
             </tr>
           </thead>
-          {String(polyTransactions) === 'Error! Invalid address format' ||
-          !(polyTransactions.length) ? (
+          {String(polyTransactions) === 'Error! Invalid address format' || polyTransactions.length === 0  ? (
             <tbody>
               <tr>
                 <td>Invalid address</td>

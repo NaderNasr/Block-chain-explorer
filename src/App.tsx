@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TransactionDetails from './transactionDetails/TransactionDetails';
+import TransactionDetails from './ethereum/TransactionDetails';
 import PolygonDetails from './polygon/PolygonDetails'
 import NotFound from './notFound/NotFound';
-import Home from './home/Home';
+import Home from './ethereum/Home';
 import Navbar from './navbar/Navbar';
 import Polygon from './polygon/Polygon';
 

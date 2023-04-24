@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import EthereumBalance from './EthereumBalance';
-import EthereumTransactionList from '../transactions/EthereumTransactionList';
+import EthereumTransactionList from './EthereumTransactionList';
 import styles from './styles.module.css';
 
 function Home(): JSX.Element {
