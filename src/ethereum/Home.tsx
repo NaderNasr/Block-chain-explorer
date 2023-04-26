@@ -3,15 +3,14 @@ import axios from 'axios';
 import EthereumBalance from './EthereumBalance';
 import EthereumTransactionList from './EthereumTransactionList';
 import styles from './styles.module.css';
+import { sanitizeInput } from '../utils/security';
+
+
 
 function Home(): JSX.Element {
   const [transactions, setTransactions] = useState<Array<any>>([]);
   const [address, setAddress] = useState<string>('');
   const apiKey = process.env.REACT_APP_ETHERSCAN_API_KEY;
-
-  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAddress(event.target.value);
-  };
 
   useEffect(() => {
     if (address) {
@@ -25,6 +24,11 @@ function Home(): JSX.Element {
         });
     }
   }, [address, apiKey]);
+
+  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitized = sanitizeInput(event.target.value)
+    setAddress(sanitized);
+  };
 
   return (
     <div>

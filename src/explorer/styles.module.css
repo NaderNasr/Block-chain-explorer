@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700;900&display=swap');
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+  font-family: Poppins;
+  font-weight: 700;
+  margin-top: 120px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+  font-family: Poppins;
+  font-weight: 400;
+}
+
+.input {
+  width: 100%;
+  max-width: 50vw;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 200;
+}
+
+.titleAlert{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+  font-family: Poppins;
+  font-weight: 700;
+  color: #000000;
+  background-color: rgba(255, 115, 0, 0.381);
+  padding: 8px;
+  margin-top: 120px;
+  border-radius: 5px;
+  width: 50vw;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination a.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.tableContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.backButton {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-right: 24px;
+  cursor: pointer;
+}
+
+.item {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 1px 1px 2px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .title {
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+@media only screen and (max-width: 1024px) {
+  td, th {
+    padding: 4px;
+  }
+  .title {
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}

@@ -12,3 +12,4 @@ export const convertToMatic = (value: number): string => {
   const convert = value / 10 ** 18;
   return `${convert.toFixed(4)} MATIC`;
 };
+

@@ -67,8 +67,6 @@ function PolygonTransactionList({ polyTransactions }: Props): JSX.Element {
   const endIndex = startIndex + transactionsPerPage;
   const currentTransactions = sortedTransactions.slice(startIndex, endIndex);
 
-
-  console.log(polyTransactions);
   return (
     <div className={styles.container}>
       <h2>Transaction List</h2>
@@ -99,7 +97,7 @@ function PolygonTransactionList({ polyTransactions }: Props): JSX.Element {
                   </tr>
                 )}
                 {currentTransactions.map((transaction, index) => (
-                  <tr key={transaction.hash}>
+                  <tr key={index}>
                     <td>{convertToMatic(transaction.value)}</td>
                     <td>{moment.unix(transaction.timeStamp).format('LLL')}</td>
                     <td>{convertToGwei(transaction.gasPrice)}</td>

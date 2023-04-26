@@ -3,6 +3,8 @@ import axios from 'axios';
 import styles from './styles.module.css';
 import PolygonBalance from './PolygonBalance';
 import PolygonTransactionList from './PolygonTransactionList';
+import Explorer from '../explorer/Explorer';
+import { sanitizeInput } from '../utils/security';
 
 interface PolygonProps {}
 
@@ -12,7 +14,8 @@ const Polygon: React.FC<PolygonProps> = () => {
   const apiKey: string = process.env.REACT_APP_POLYSCAN_API_KEY || '';
 
   const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPolyAddress(event.target.value);
+    const sanitized = sanitizeInput(event.target.value)
+    setPolyAddress(sanitized);
   };
 
   useEffect(() => {
@@ -39,6 +42,8 @@ const Polygon: React.FC<PolygonProps> = () => {
             <span>Enter a Polygon address:</span>
             <input type="text" value={polyAddress} onChange={handleAddressChange} className={styles.input} />
           </label>
+
+          {!polyAddress && <Explorer apiKey={apiKey}/>}
 
           {polyAddress ? (
             <div>
