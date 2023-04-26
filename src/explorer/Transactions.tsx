@@ -39,7 +39,7 @@ function Transactions({ polyTransactions }: Props): JSX.Element {
 
   return (
     <div className={styles.container}>
-      <h2>Transactions from: {}</h2>
+      <h2>Sample Transactions</h2>
       <div className={styles.tableContainer}>
         <table className={styles.table}>
           <thead>
