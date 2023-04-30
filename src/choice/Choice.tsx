@@ -1,20 +1,22 @@
 import React from 'react';
 import styles from './styles.module.css';
+import { Link } from 'react-router-dom';
 
 function TwoBoxes() {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Choose an option</h2>
       <div className={styles.boxContainer}>
-        <a href="/home" className={styles.landingButton}>
+        <Link to="/home" className={styles.landingButton}>
           Ethereum
-        </a>
-        <a href="/polygon" className={styles.landingButton}>
+        </Link>
+
+        <Link to="/polygon" className={styles.landingButton}>
           Polygon
-        </a>
-        <a href="/metamask" className={styles.landingButton}>
+        </Link>
+        <Link to="/metamask" className={styles.landingButton}>
           Connect to Meta Mask
-        </a>
+        </Link>
       </div>
     </div>
   );
