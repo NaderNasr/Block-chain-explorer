@@ -8,6 +8,7 @@ import Polygon from './polygon/Polygon';
 import MetaMask from './metamask/MetaMask';
 import Choice from './choice/Choice';
 import Landing from './landing/Landing';
+import './App.css'
 
 function App() {
 
