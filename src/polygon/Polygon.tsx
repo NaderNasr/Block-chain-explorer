@@ -45,13 +45,11 @@ const Polygon: React.FC<PolygonProps> = () => {
 
           {!polyAddress && <Explorer apiKey={apiKey}/>}
 
-          {polyAddress ? (
+          {polyAddress &&  (
             <div>
               <PolygonBalance polyAddress={polyAddress} />
               <PolygonTransactionList polyTransactions={polyTransactions} />
             </div>
-          ) : (
-            <p className={styles.titleAlert}>Please enter a Polygon address</p>
           )}
         </div>
       </div>

@@ -8,15 +8,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  color: rgb(0, 0, 0);
+  background-color: #eb0000;
+  color: rgb(255, 255, 255);
   padding: 20px;
   margin-bottom: 120px;
-  background-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
 }
 
 .links {
@@ -36,11 +34,12 @@
   display: inline-block;
   padding: 8px 16px;
   background-color: transparent;
-  border: 1px solid rgb(161, 161, 161);
+  border: 1px solid rgb(255, 0, 183);
   border-radius: 4px;
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
   font-family: Poppins;
+  background-color: rgb(255, 255, 255);
 }
 
 .button:hover {
@@ -51,6 +50,10 @@
 
 .center {
   text-align: center;
+}
+
+.logo{
+  height: 40px;
 }
 
 @media only screen and (max-width: 1024px) {

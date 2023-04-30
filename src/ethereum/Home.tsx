@@ -4,9 +4,8 @@ import EthereumBalance from './EthereumBalance';
 import EthereumTransactionList from './EthereumTransactionList';
 import styles from './styles.module.css';
 import { sanitizeInput } from '../utils/security';
-
-
-
+import Landing from '../landing/Landing';
+import Choice from '../choice/Choice'
 function Home(): JSX.Element {
   const [transactions, setTransactions] = useState<Array<any>>([]);
   const [address, setAddress] = useState<string>('');
@@ -15,18 +14,20 @@ function Home(): JSX.Element {
   useEffect(() => {
     if (address) {
       axios
-        .get(`https://api.etherscan.io/api?module=account&action=txlist&address=${address}&apikey=${apiKey}`)
-        .then(response => {
+        .get(
+          `https://api.etherscan.io/api?module=account&action=txlist&address=${address}&apikey=${apiKey}`
+        )
+        .then((response) => {
           setTransactions(response.data.result);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     }
   }, [address, apiKey]);
 
   const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const sanitized = sanitizeInput(event.target.value)
+    const sanitized = sanitizeInput(event.target.value);
     setAddress(sanitized);
   };
 
@@ -37,7 +38,12 @@ function Home(): JSX.Element {
           <h1 className={styles.title}>Ethereum Address Transactions</h1>
           <label className={styles.label}>
             <span>Enter an Ethereum address:</span>
-            <input type="text" value={address} onChange={handleAddressChange} className={styles.input} />
+            <input
+              type="text"
+              value={address}
+              onChange={handleAddressChange}
+              className={styles.input}
+            />
           </label>
 
           {address ? (
@@ -46,7 +52,9 @@ function Home(): JSX.Element {
               <EthereumTransactionList transactions={transactions} />
             </div>
           ) : (
-            <p className={styles.titleAlert}>Please enter an Ethereum address</p>
+            <p className={styles.titleAlert}>
+              Please enter an Ethereum address
+            </p>
           )}
         </div>
       </div>
