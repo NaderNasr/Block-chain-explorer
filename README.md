@@ -2,7 +2,7 @@
 
 ## Installation
 To install the project:
-- git clone 
+- git clone
 - Make sure to get PolyScan & EtherScan API Keys
 - Go to project, find `.env.example` change to `.env` and add API keys.
 - npm install
@@ -12,7 +12,7 @@ To install the project:
 ## Technologies
 
 - Stack: React JS, Typescript
-- Dependencies: Axios, React router dom, Moment
+- Dependencies: Axios, React router dom, Moment, js-cookies, uuid
 - API: PolyScan & EtherScan
 ---
 
