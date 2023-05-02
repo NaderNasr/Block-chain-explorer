@@ -23,7 +23,7 @@ function App() {
           <Route path="/polygon" element={<Polygon />} />
           <Route path="/transactionDetails/:hash" element={<TransactionDetails />} />
           <Route path="/polygonDetails/:hash" element={<PolygonDetails />} />
-          <Route path="/metamask" element={<MetaMask title='Connect to Meta Mask'/>} />
+          <Route path="/metamask" element={<MetaMask />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
