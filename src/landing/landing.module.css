@@ -1,20 +1,23 @@
 .container {
   display: flex;
   flex-direction: row;
-  margin: 0px;
-  height: 100vh;
-  background-image: url('../assets/LandingBG.png');
-  background-size: cover;
-  margin-left: -10px !important;
-  margin-right: -10px !important;
-  margin-top: -10px !important;
+  margin: -10px !important;
+  min-height: 100vh;
+  background: rgb(155, 34, 195);
+  background: linear-gradient(
+    49deg,
+    rgba(155, 34, 195, 1) 0%,
+    rgba(69, 45, 253, 1) 100%
+  );
   overflow: hidden !important;
+  padding-bottom: 20px;
 }
 
 .textContainer {
   flex: 1;
   font-family: 'Poppins';
-  margin-top: 0px;
+  margin-top: 10%;
+
   margin-bottom: auto;
   padding-left: 120px;
 }
@@ -29,6 +32,7 @@
   text-align: left;
   font-weight: 900;
   color: aliceblue;
+  line-height: 90px;
 }
 
 .description {
@@ -86,8 +90,5 @@
     justify-content: space-between;
     align-items: center;
     height: 150vh;
-    background-image: url('../assets/LandingBG.png');
-    background-size: cover;
-    background-position: center;
   }
 }
