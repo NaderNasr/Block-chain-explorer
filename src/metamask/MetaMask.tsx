@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import { Transaction } from 'web3-core';
+import styles from './MetaMask.module.css';
+import Cookies from 'js-cookie';
+import { v4 as uuidv4 } from 'uuid';
 
-type MetaMaskProps = {
-  title: string;
-};
-
-const MetaMask = ({ title }: MetaMaskProps) => {
+const MetaMask = () => {
   const [connected, setConnected] = useState(false);
   const [account, setAccount] = useState<string>('');
   const [balance, setBalance] = useState<number>(0);
@@ -18,14 +17,16 @@ const MetaMask = ({ title }: MetaMaskProps) => {
       value: number;
     }[]
   >([]);
+  const [title, setTitle] = useState<string>('Connect to Meta Mask');
 
   const [noExtension, setNoExtension] = useState<string>('');
-
+  const token = uuidv4();
   const connectToMetaMask = async () => {
     try {
       await window.ethereum.enable();
       setNoExtension('');
       setConnected(true);
+      Cookies.set('sessionToken', token, { expires: 7 });
     } catch (error) {
       console.log(error);
       setNoExtension('MetaMask extension not found');
@@ -33,10 +34,15 @@ const MetaMask = ({ title }: MetaMaskProps) => {
   };
 
   useEffect(() => {
+    const token = Cookies.get('sessionToken');
+    if (token) {
+      setConnected(true);
+      setTitle('Connected!');
+    }
+
     const getAccount = async () => {
       const web3 = new Web3(window.ethereum);
       const accounts = await web3.eth.getAccounts();
-      // console.log('accounts',accounts);
       setAccount(accounts[0]);
     };
 
@@ -51,7 +57,6 @@ const MetaMask = ({ title }: MetaMaskProps) => {
       const web3 = new Web3(window.ethereum);
       const accounts = await web3.eth.getAccounts();
       const userTransaction = await web3.eth.getTransaction(accounts[0]);
-      // console.log('userTransaction', userTransaction);
       const transactions = Array.isArray(userTransaction)
         ? userTransaction
         : [userTransaction];
@@ -73,6 +78,12 @@ const MetaMask = ({ title }: MetaMaskProps) => {
 
   // console.log(transactions);
 
+  const SignOut = () => {
+    Cookies.remove('sessionToken');
+    setConnected(false);
+    setTitle('Connect to Meta Mask');
+  };
+
   return (
     <div
       style={{
@@ -84,16 +95,34 @@ const MetaMask = ({ title }: MetaMaskProps) => {
         flexDirection: 'column',
       }}
     >
-      <h1>{title}</h1>
+      <h1 className={styles.title}>{title}</h1>
+      {connected && (
+        <button onClick={() => SignOut()} className={styles.signOut}>
+          Sign out
+        </button>
+      )}
       {noExtension && <p>{noExtension}</p>}
 
       {!connected && (
-        <button onClick={connectToMetaMask}>Connect to MetaMask</button>
+        <button onClick={connectToMetaMask} className={styles.signIn}>
+          Connect to MetaMask
+        </button>
       )}
       {connected && (
         <>
-          <p>Account: {account}</p>
-          <p>Balance: {balance} ETH</p>
+          <div className={styles.container}>
+            <div className={styles.box}>
+              <p className={styles.text}>
+                <strong>Account:</strong> <br /> {account}
+              </p>
+            </div>
+            <div className={styles.box}>
+              <p className={styles.text}>
+                <strong>Balance:</strong> <br /> {balance} ETH
+              </p>
+            </div>
+          </div>
+
           {transactions.length > 0 ? (
             <>
               <h2>Transaction History</h2>
